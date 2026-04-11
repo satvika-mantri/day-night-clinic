@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
 const DOCTORS = [
-  { name: "Dr. Killamsetty Sai Sandeep", role: "MDS Orthodontist", desc: "Aligners & Braces Specialist. Dedicated to perfecting structural alignments.", image: "https://ui-avatars.com/api/?name=Dr+Sandeep&background=2CBCE4&color=fff&size=400&font-size=0.3" },
+  { name: "Dr. Killamsetty Sai Sandeep", role: "MDS Orthodontist", desc: "Aligners & Braces Specialist. Dedicated to perfecting structural alignments.", image: "/images/dr-sai-sandeep.jpg" },
   { name: "Dr. Priya Sharma", role: "Implantologist", desc: "Pioneer in full-mouth restorations and digital implants.", image: "https://images.unsplash.com/photo-1594824436998-058b231b14ea?auto=format&fit=crop&w=600&q=80" },
   { name: "Dr. Ramesh Kumar", role: "Cosmetic Dentist", desc: "Specializes in ultra-thin veneers and smile symmetry.", image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=600&q=80" },
   { name: "Dr. Ananya Reddy", role: "Endodontist", desc: "Microscopic root canals and pain-free treatments.", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80" },
@@ -48,7 +48,7 @@ export default function Team() {
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                   <h3 className="font-heading text-2xl font-bold text-white mb-2">{doc.name}</h3>
-                  <p className="text-gold font-medium mb-4">{doc.role}</p>
+                  <p className="text-accent font-medium mb-4">{doc.role}</p>
                   <p className="text-white/70 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">{doc.desc}</p>
                   <Link href="/appointment" className="inline-flex items-center text-sm font-bold text-white hover:text-accent transition-colors">
                     Consult with {doc.name.split(' ')[1]} <ChevronRight size={16} className="ml-1" />

@@ -72,7 +72,7 @@ export default function BeforeAfterSlider({ beforeImage, afterImage }: BeforeAft
           alt="Before Smile Design"
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute top-4 left-4 bg-gold text-dark-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm shadow-lg pointer-events-none">
+        <div className="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm shadow-lg pointer-events-none">
           Before
         </div>
       </div>
@@ -95,12 +95,12 @@ export default function BeforeAfterSlider({ beforeImage, afterImage }: BeforeAft
 
       {/* Slider Handle */}
       <div 
-        className="absolute top-0 bottom-0 z-20 w-1 bg-gold cursor-ew-resize flex items-center justify-center group-hover:bg-accent transition-colors shadow-[0_0_10px_rgba(212,175,55,0.5)]"
+        className="absolute top-0 bottom-0 z-20 w-1 bg-primary cursor-ew-resize flex items-center justify-center group-hover:bg-accent transition-colors shadow-[0_0_10px_rgba(87,91,163,0.5)]"
         style={{ left: `calc(${sliderPosition}% - 2px)` }}
       >
-        <div className="absolute w-8 h-8 bg-gold group-hover:bg-accent rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110 -ml-4">
-          <ChevronLeft className="w-4 h-4 text-dark-900 -mr-1" />
-          <ChevronRight className="w-4 h-4 text-dark-900 -ml-1" />
+        <div className="absolute w-8 h-8 bg-primary group-hover:bg-accent rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110 -ml-4">
+          <ChevronLeft className="w-4 h-4 text-white -mr-1" />
+          <ChevronRight className="w-4 h-4 text-white -ml-1" />
         </div>
       </div>
       

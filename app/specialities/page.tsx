@@ -77,7 +77,7 @@ export default function Specialities() {
 
                 <div className="flex-grow" />
 
-                <div className="mt-6 pt-4 border-t border-white/5 text-xs text-gold font-bold uppercase tracking-widest cursor-pointer hover:text-white transition-colors">
+                <div className="mt-6 pt-4 border-t border-white/5 text-xs text-accent font-bold uppercase tracking-widest cursor-pointer hover:text-white transition-colors">
                   Learn More
                 </div>
               </div>

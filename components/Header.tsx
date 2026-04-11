@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -43,13 +44,14 @@ export default function Header() {
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="group flex flex-col">
-            <span className="font-heading text-2xl font-bold tracking-wider text-gold group-hover:text-white transition-colors duration-300">
-              DAY & NIGHT
-            </span>
-            <span className="text-xs uppercase tracking-[0.2em] text-white/70">
-              Dental Clinic
-            </span>
+          <Link href="/" className="group flex flex-col items-center justify-center">
+            <Image 
+              src="/images/logo-primary.png" 
+              alt="Day & Night Dental Clinic" 
+              width={150} 
+              height={50} 
+              className="h-10 w-auto hover:opacity-80 transition-opacity duration-300"
+            />
           </Link>
 
           {/* Desktop Nav */}

@@ -9,7 +9,6 @@ module.exports = {
       colors: {
         primary: "#575BA3",
         accent: "#2CBCE4",
-        gold: "#D4AF37", // soft gold highlight
         dark: {
           900: "#0a0a0a",
           800: "#121212",
