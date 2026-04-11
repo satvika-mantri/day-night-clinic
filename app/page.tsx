@@ -232,7 +232,7 @@ export default function Home() {
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center mb-16">
             <h3 className="font-heading text-4xl md:text-5xl font-bold mb-4">Smile Gallery</h3>
-            <p className="text-white/60 max-w-2xl mx-auto">Witness the art of transformation. Real patients, real luxury results.</p>
+            <p className="text-white/60 max-w-2xl mx-auto">Witness the art of transformation. Real patients, real advanced results.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">

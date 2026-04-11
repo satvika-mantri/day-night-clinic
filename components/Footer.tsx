@@ -20,7 +20,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-white/60 text-sm leading-relaxed">
-              Experience the pinnacle of luxury dental care. Precision dentistry for beautiful smiles, day and night.
+              Experience the pinnacle of advanced dental care. Precision dentistry for beautiful smiles, day and night.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/70 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300">
@@ -90,12 +90,12 @@ export default function Footer() {
             <h4 className="font-heading text-lg text-white mb-6">Working Hours</h4>
             <ul className="space-y-4">
               <li className="flex justify-between items-center text-sm border-b border-white/5 pb-2">
-                <span className="text-white/80">Monday - Friday</span>
-                <span className="text-accent">08:00 AM - 10:00 PM</span>
+                <span className="text-white/80">Monday – Friday</span>
+                <span className="text-accent">9:00 AM – 9:00 PM</span>
               </li>
               <li className="flex justify-between items-center text-sm border-b border-white/5 pb-2">
                 <span className="text-white/80">Saturday</span>
-                <span className="text-accent">09:00 AM - 08:00 PM</span>
+                <span className="text-accent">9:00 AM – 8:00 PM</span>
               </li>
               <li className="flex justify-between items-center text-sm border-b border-white/5 pb-2">
                 <span className="text-white/80">Sunday</span>

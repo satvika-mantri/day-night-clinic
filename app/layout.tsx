@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "Day & Night Dental Clinic | Premium Dental Care",
-  description: "Precision Dentistry. Beautiful Smiles. Day & Night Care. Experience luxury healthcare with our ultimate smile design.",
+  description: "Precision Dentistry. Beautiful Smiles. Day & Night Care. Experience advanced dental care with our ultimate smile design.",
 };
 
 export default function RootLayout({

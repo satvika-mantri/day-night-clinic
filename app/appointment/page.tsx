@@ -42,7 +42,7 @@ export default function Appointment() {
             <div>
               <h1 className="font-heading text-5xl font-bold mb-6">Schedule Your Visit</h1>
               <p className="text-white/70 max-w-md text-lg font-light leading-relaxed">
-                Step into a world of bespoke dental care. Fill out the details below and our concierge will contact you to finalize your appointment.
+                Step into a world of personalized dental care. Fill out the details below and our team will contact you to finalize your appointment.
               </p>
             </div>
 
@@ -54,7 +54,7 @@ export default function Appointment() {
                 <div>
                   <h4 className="font-bold text-white mb-1">Clinic Location</h4>
                   <p className="text-white/60 text-sm leading-relaxed">
-                    123 Luxury Avenue, Healthcare Hub<br />Cityville, ST 12345
+                    Day & Night Medical Complex, Beside Reliance Digital,<br />Opp Forest Office, Srikakulam – 532001
                   </p>
                 </div>
               </div>
@@ -66,7 +66,7 @@ export default function Appointment() {
                 <div>
                   <h4 className="font-bold text-white mb-1">Direct Contact</h4>
                   <p className="text-white/60 text-sm leading-relaxed">
-                    +1 (555) 123-4567<br />care@daynightclinic.com
+                    +91 8977383622<br />+91 6305074696<br />daynightdental@gmail.com
                   </p>
                 </div>
               </div>
@@ -78,7 +78,7 @@ export default function Appointment() {
                 <div>
                   <h4 className="font-bold text-white mb-1">Working Hours</h4>
                   <p className="text-white/60 text-sm leading-relaxed">
-                    Mon - Fri: 8:00 AM - 10:00 PM<br />Sat: 9:00 AM - 8:00 PM
+                    Monday – Friday: 9:00 AM – 9:00 PM<br />Saturday: 9:00 AM – 8:00 PM<br />Sunday: Emergency Only
                   </p>
                 </div>
               </div>
@@ -106,7 +106,7 @@ export default function Appointment() {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full bg-dark-900/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent transition-colors"
-                    placeholder="John Doe"
+                    placeholder="Enter your full name"
                   />
                 </div>
                 <div className="space-y-2">
@@ -118,7 +118,7 @@ export default function Appointment() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full bg-dark-900/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent transition-colors"
-                    placeholder="+1 (555) 000-0000"
+                    placeholder="Enter your mobile number"
                   />
                 </div>
               </div>
@@ -132,7 +132,7 @@ export default function Appointment() {
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full bg-dark-900/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent transition-colors"
-                  placeholder="john@example.com"
+                  placeholder="Enter your email address"
                 />
               </div>
 
@@ -177,7 +177,7 @@ export default function Appointment() {
                   onChange={handleChange}
                   rows={4}
                   className="w-full bg-dark-900/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent transition-colors resize-none"
-                  placeholder="Tell us about what you'd like to achieve..."
+                  placeholder="Describe your concern or treatment need"
                 ></textarea>
               </div>
 
