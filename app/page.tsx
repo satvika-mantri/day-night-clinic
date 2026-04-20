@@ -20,10 +20,11 @@ const DOCTORS = [
 ];
 
 const GALLERY = [
-  "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1598256989800-fea5fb20b610?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=600&q=80"
+  "/images/gallery_images/image1.png",
+  "/images/gallery_images/image2.png",
+  "/images/gallery_images/image3.png",
+  "/images/gallery_images/image4.png",
+  "/images/gallery_images/image5.png"
 ];
 
 export default function Home() {
@@ -230,8 +231,10 @@ export default function Home() {
       <section className="py-24 bg-dark-800/30 border-t border-white/5">
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center mb-16">
-            <h3 className="font-heading text-4xl md:text-5xl font-bold mb-4">Smile Gallery</h3>
-            <p className="text-white/60 max-w-2xl mx-auto">Witness the art of transformation. Real patients, real advanced results.</p>
+            <h3 className="font-heading text-4xl md:text-5xl font-bold mb-4">Real Smiles, Real Transformations</h3>
+            <p className="text-white/60 max-w-2xl mx-auto leading-relaxed">
+              Explore real patient transformations achieved through our advanced clips and braces treatments. With 13+ years of experience and a focus on non-extraction methods, we have helped hundreds of patients achieve confident, healthy smiles.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
@@ -242,7 +245,8 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`relative rounded-2xl overflow-hidden aspect-[4/3] group cursor-pointer ${idx === 0 || idx === 3 ? "md:aspect-square lg:aspect-video" : ""}`}
+                className={`relative rounded-2xl overflow-hidden aspect-[4/3] group cursor-pointer ${idx === 0 || idx === 3 ? "md:aspect-square lg:aspect-video" : ""
+                  } ${idx === 4 ? "md:col-span-1 md:col-start-1 md:col-end-3 lg:aspect-[21/9]" : ""}`}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -255,10 +259,18 @@ export default function Home() {
                     <Search className="text-white w-6 h-6" />
                   </div>
                 </div>
+                <div className="absolute bottom-4 left-4 right-4 text-center z-20 pointer-events-none">
+                  <span className="bg-dark-900/80 text-white text-sm font-medium px-6 py-2 rounded-full backdrop-blur-md border border-white/10 shadow-lg inline-block opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                    Smile Transformation
+                  </span>
+                </div>
               </motion.div>
             ))}
           </div>
-          <div className="mt-12 text-center">
+          <div className="mt-12 text-center flex flex-col items-center">
+            <p className="text-white/60 text-sm italic mb-6">
+              "Trusted by patients across Srikakulam for safe, effective, and personalized dental care."
+            </p>
             <Link href="/gallery" className="inline-block border-b border-accent text-accent hover:text-white hover:border-white pb-1 transition-all">
               View Complete Gallery
             </Link>
