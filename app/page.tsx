@@ -1,8 +1,10 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { Search, Calendar, Sparkles, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { Search, Calendar, Sparkles, ChevronRight, ChevronLeft } from "lucide-react";
 import AnimatedCard from "@/components/AnimatedCard";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 
@@ -27,52 +29,137 @@ const GALLERY = [
   "/images/gallery_images/image5.png"
 ];
 
+const HERO_SLIDES = [
+  {
+    image: "*/images/services/dental-implants.jpg",
+    title: "Advanced Dental Implants",
+    description: "Permanent, natural-looking tooth replacement solutions.",
+  },
+  {
+    image: "*/images/services/clear-aligners.jpg",
+    title: "Invisible Aligners & Clips",
+    description: "Straighten your teeth comfortably without visible braces.",
+  },
+  {
+    image: "*/images/services/root-canal-treatment.jpg",
+    title: "Painless Root Canal Treatment",
+    description: "Save your natural teeth with advanced pain-free procedures.",
+  }
+];
+
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [isPaused]);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+
   return (
     <div className="flex flex-col w-full pb-20 bg-white">
 
-      {/* 1. HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-white">
-        <div className="container mx-auto px-6 max-w-7xl relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* 1. HERO SLIDESHOW SECTION */}
+      <section
+        className="relative min-h-[90vh] w-full bg-white overflow-hidden group"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="absolute inset-0"
+          >
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="space-y-8"
+              initial={{ scale: 1 }}
+              animate={{ scale: 1.05 }}
+              transition={{ duration: 6, ease: "linear" }}
+              className="relative w-full h-full"
             >
-              <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-gray-900">
-                Precision Dentistry.<br />
-                <span className="text-primary">Beautiful Smiles.</span><br />
-                <span className="text-accent">Day & Night Care.</span>
-              </h1>
-              <p className="text-gray-600 text-lg md:text-xl max-w-lg leading-relaxed font-light">
-                One of the best dental clinics in Srikakulam for clips and braces treatments. With over 13 years of experience in advanced dental and braces treatments, we specialize in non-extraction treatment methods to create confident, healthy smiles.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Link href="/appointment" className="px-8 py-4 bg-primary text-white rounded-full font-medium text-center hover:bg-primary/90 transition-all shadow-sm">
-                  Start Your Transformation
-                </Link>
-                <Link href="/treatments" className="px-8 py-4 bg-white border border-primary text-primary hover:bg-neutral-50 rounded-full font-medium text-center transition-all shadow-sm">
-                  Explore Services
-                </Link>
-              </div>
+              <Image
+                src={HERO_SLIDES[currentSlide].image}
+                alt={HERO_SLIDES[currentSlide].title}
+                fill
+                priority
+                className="object-cover"
+              />
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-              className="relative"
-            >
-              <div className="relative z-10 w-full rounded-2xl p-1 bg-white shadow-lg border border-gray-100">
-                <BeforeAfterSlider
-                  beforeImage="/images/before-image.jpg"
-                  afterImage="/images/after-image.jpg"
-                />
+            {/* Dark overlay for readability */}
+            <div className="absolute inset-0 bg-black/50" />
+
+            {/* Content overlay */}
+            <div className="absolute inset-0 flex items-center z-10 pt-16">
+              <div className="container mx-auto px-6 max-w-7xl">
+                <div className="max-w-2xl text-white">
+                  <motion.h1
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+                  >
+                    {HERO_SLIDES[currentSlide].title}
+                  </motion.h1>
+                  <motion.p
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className="text-lg md:text-xl md:text-2xl mb-8 font-light text-gray-100"
+                  >
+                    {HERO_SLIDES[currentSlide].description}
+                  </motion.p>
+                  <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                  >
+                    <Link href="/appointment" className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-primary/90 transition-all shadow-sm text-lg gap-2 hover:scale-105 active:scale-95 duration-200">
+                      Book Appointment <ChevronRight size={20} />
+                    </Link>
+                  </motion.div>
+                </div>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 p-3 bg-black/20 hover:bg-black/50 text-white rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 hidden md:block"
+          aria-label="Previous Slide"
+        >
+          <ChevronLeft size={24} />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 p-3 bg-black/20 hover:bg-black/50 text-white rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 hidden md:block"
+          aria-label="Next Slide"
+        >
+          <ChevronRight size={24} />
+        </button>
+
+        {/* Navigation Dots */}
+        <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-3 z-20">
+          {HERO_SLIDES.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentSlide(idx)}
+              className={`h-3 rounded-full transition-all duration-300 ${idx === currentSlide ? "bg-primary w-10 shadow-lg" : "bg-white/50 hover:bg-white/80 w-3"
+                }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
         </div>
       </section>
 
@@ -114,6 +201,26 @@ export default function Home() {
                 </p>
               </div>
             </AnimatedCard>
+          </div>
+        </div>
+      </section>
+
+      {/* 2.5. REAL PATIENT TRANSFORMATIONS */}
+      <section className="py-24 relative z-20 bg-white border-b border-gray-100">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="text-center mb-12">
+            <h3 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-4">Real Patient Transformations</h3>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              See the outstanding results our experienced team achieves with advanced dental and cosmetic treatments.
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto rounded-2xl p-2 bg-neutral-50 shadow-lg border border-gray-100 flex items-center justify-center">
+            <div className="w-full relative z-10 rounded-2xl bg-white shadow-sm overflow-hidden">
+              <BeforeAfterSlider
+                beforeImage="/images/before-image.jpg"
+                afterImage="/images/after-image.jpg"
+              />
+            </div>
           </div>
         </div>
       </section>

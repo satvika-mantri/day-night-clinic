@@ -1,5 +1,16 @@
 export const BLOG_POSTS = [
   {
+    slug: "painless-tooth-extraction",
+    title: "Painless Tooth Extraction: Safe and Comfortable Dental Care",
+    excerpt: "Modern techniques ensure tooth extraction is safe, quick, and completely painless.",
+    date: "April 24, 2026",
+    author: "Dr. Sai Sandeep",
+    image: "/images/blog/painless-tooth-extraction.png",
+    category: "General Dentistry",
+    content:
+      "Fear of tooth extraction is common, but modern dentistry has made the experience highly comfortable.\n\nToday, painless tooth extraction is a reality. Using advanced local anesthesia and gentle precision, we ensure a safe dental extraction and tooth removal without pain.\n\nOur patient-first approach is backed by 13+ years of experience. As a trusted dental clinic in Srikakulam, we prioritize your comfort during the quick procedure.\n\nWe provide complete recovery and aftercare tips to ensure your healing process is just as smooth and safe."
+  },
+  {
     slug: "clips-vs-braces-treatment",
     title: "Clips vs Braces: Which Treatment is Best for You?",
     excerpt: "Understand the key differences between traditional clips and modern braces.",
